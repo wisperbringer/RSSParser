@@ -1,0 +1,21 @@
+﻿@model IEnumerable<repository.entity.db.Topic>;
+
+<div id="result_table">
+    <table class="table table-bordered">
+        <tr>
+            <td>Источник</td>
+            <td>Название новости</td>
+            <td>Описание новости</td>
+            <td>Дата публикации</td>
+        </tr>
+        @foreach (var topic in Model)
+        {
+            <tr>
+                <td><b>@topic.Source.Name</b></td>
+                <td><a href="@topic.Link" target="_blank">@topic.Title</a></td>
+                <td><p style="max-height:150px; overflow:hidden; text-overflow: ellipsis; ">@topic.Description</p></td>
+                <td>@topic.PublisDate</td>
+            </tr>
+        }
+    </table>
+</div>

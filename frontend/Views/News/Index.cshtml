@@ -1,0 +1,56 @@
+﻿@model frontend.Models.NewsRequestModel
+@{
+    ViewData["Title"] = "News";
+}
+
+<h1>Новостная лента</h1>
+
+
+<select id="source" asp-for="Source" asp-items="@new SelectList(Model.AllSources)"></select>
+<br />
+@foreach (var orderOption in Model.OrderByOptions)
+{
+    <input type="radio" asp-for="Option" value="@orderOption.Key" />@orderOption.Value<br />
+}
+<input type="button" id="search_button" value="Посмотреть" />
+
+<div id="results"></div>
+
+
+<a id="prev_page" class="btn btn-default btn">
+    <i class="glyphicon glyphicon-chevron-left"></i>
+    Назад
+</a>
+<a id="next_page" class="btn btn-default btn">
+    Вперед
+    <i class="glyphicon glyphicon-chevron-right"></i>
+</a>
+
+<script>
+    var pageNumer = 1;
+    function GetUrl() {
+        var source = $('#source').val();
+        var option = $('input[name="Option"]:checked').val()
+        var url = '@Url.Action("LoadTopics", "News")';
+        url += "?sourceName=" + source + "&option=" + option + "&page=" + pageNumer;
+        return url;
+    }
+
+    $('#search_button').click(function () {
+        $('#results').load(GetUrl());
+
+        $('#prev_page').click(function () {
+            pageNumer--;
+            console.log(pageNumer);
+            $('#results').load(GetUrl());
+        })
+
+        $('#next_page').click(function () {
+            pageNumer++;
+            console.log(pageNumer);
+            $('#results').load(GetUrl());
+        })
+    })
+
+
+</script>

@@ -1,0 +1,8 @@
+C:\Users\uladzislau.hreben\source\repos\RSSParser\repository.entity\bin\Debug\netcoreapp2.2\repository.entity.deps.json
+C:\Users\uladzislau.hreben\source\repos\RSSParser\repository.entity\bin\Debug\netcoreapp2.2\repository.entity.dll
+C:\Users\uladzislau.hreben\source\repos\RSSParser\repository.entity\bin\Debug\netcoreapp2.2\repository.entity.pdb
+C:\Users\uladzislau.hreben\source\repos\RSSParser\repository.entity\obj\Debug\netcoreapp2.2\repository.entity.csproj.CoreCompileInputs.cache
+C:\Users\uladzislau.hreben\source\repos\RSSParser\repository.entity\obj\Debug\netcoreapp2.2\repository.entity.AssemblyInfoInputs.cache
+C:\Users\uladzislau.hreben\source\repos\RSSParser\repository.entity\obj\Debug\netcoreapp2.2\repository.entity.AssemblyInfo.cs
+C:\Users\uladzislau.hreben\source\repos\RSSParser\repository.entity\obj\Debug\netcoreapp2.2\repository.entity.dll
+C:\Users\uladzislau.hreben\source\repos\RSSParser\repository.entity\obj\Debug\netcoreapp2.2\repository.entity.pdb

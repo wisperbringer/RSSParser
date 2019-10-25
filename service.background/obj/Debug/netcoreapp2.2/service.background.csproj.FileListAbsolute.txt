@@ -1,0 +1,17 @@
+C:\Users\uladzislau.hreben\source\repos\RSSParser\service.background\bin\Debug\netcoreapp2.2\service.background.deps.json
+C:\Users\uladzislau.hreben\source\repos\RSSParser\service.background\bin\Debug\netcoreapp2.2\service.background.runtimeconfig.json
+C:\Users\uladzislau.hreben\source\repos\RSSParser\service.background\bin\Debug\netcoreapp2.2\service.background.runtimeconfig.dev.json
+C:\Users\uladzislau.hreben\source\repos\RSSParser\service.background\bin\Debug\netcoreapp2.2\service.background.dll
+C:\Users\uladzislau.hreben\source\repos\RSSParser\service.background\bin\Debug\netcoreapp2.2\service.background.pdb
+C:\Users\uladzislau.hreben\source\repos\RSSParser\service.background\bin\Debug\netcoreapp2.2\repository.entity.dll
+C:\Users\uladzislau.hreben\source\repos\RSSParser\service.background\bin\Debug\netcoreapp2.2\repository.operation.dll
+C:\Users\uladzislau.hreben\source\repos\RSSParser\service.background\bin\Debug\netcoreapp2.2\repository.operation.pdb
+C:\Users\uladzislau.hreben\source\repos\RSSParser\service.background\bin\Debug\netcoreapp2.2\repository.entity.pdb
+C:\Users\uladzislau.hreben\source\repos\RSSParser\service.background\obj\Debug\netcoreapp2.2\service.background.csprojAssemblyReference.cache
+C:\Users\uladzislau.hreben\source\repos\RSSParser\service.background\obj\Debug\netcoreapp2.2\service.background.csproj.CoreCompileInputs.cache
+C:\Users\uladzislau.hreben\source\repos\RSSParser\service.background\obj\Debug\netcoreapp2.2\service.background.AssemblyInfoInputs.cache
+C:\Users\uladzislau.hreben\source\repos\RSSParser\service.background\obj\Debug\netcoreapp2.2\service.background.AssemblyInfo.cs
+C:\Users\uladzislau.hreben\source\repos\RSSParser\service.background\obj\Debug\netcoreapp2.2\service.background.csproj.CopyComplete
+C:\Users\uladzislau.hreben\source\repos\RSSParser\service.background\obj\Debug\netcoreapp2.2\service.background.dll
+C:\Users\uladzislau.hreben\source\repos\RSSParser\service.background\obj\Debug\netcoreapp2.2\service.background.pdb
+C:\Users\uladzislau.hreben\source\repos\RSSParser\service.background\bin\Debug\netcoreapp2.2\appsettings.json
