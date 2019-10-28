@@ -34,3 +34,4 @@ C:\Users\uladzislau.hreben\source\repos\RSSParser\frontend\bin\Debug\netcoreapp2
 C:\Users\uladzislau.hreben\source\repos\RSSParser\frontend\bin\Debug\netcoreapp2.2\repository.entity.pdb
 C:\Users\uladzislau.hreben\source\repos\RSSParser\frontend\bin\Debug\netcoreapp2.2\repository.operation.pdb
 C:\Users\uladzislau.hreben\source\repos\RSSParser\frontend\obj\Debug\netcoreapp2.2\Razor\Views\News\_News.g.cshtml.cs
+C:\Users\uladzislau.hreben\source\repos\RSSParser\frontend\bin\Debug\netcoreapp2.2\appsettings.json
