@@ -1,12 +1,12 @@
-﻿using repository.entity.db;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace frontend.Models
 {
     public class NewsRequestModel
     {
-        public IEnumerable<string> AllSources { get; set; }
+        public List<string> AllSources { get; set; }
 
         public Dictionary<OrderBy, string> OrderByOptions { get; set; } = new Dictionary<OrderBy, string>
         {
@@ -19,6 +19,8 @@ namespace frontend.Models
         
         [Required]
         public OrderBy Option { get; set; }
+
+        public bool IsAJAX { get; set; }
     }
 
     public enum OrderBy

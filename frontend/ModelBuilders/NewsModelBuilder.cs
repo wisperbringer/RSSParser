@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using frontend.Models;
 using Microsoft.EntityFrameworkCore;
 using repository.entity.db;
@@ -29,7 +30,17 @@ namespace frontend.ModelBuilders
             }
         }
 
-        public IEnumerable<Topic> GetTopics(OrderBy orderBy, string sourceName)
+
+
+        public async Task<PaginatedList<repository.entity.db.Topic>> GetTopics(string sourceName, string orderOption, int page, int pageSize)
+        {
+            IQueryable<repository.entity.db.Topic> topics = GetTopics((OrderBy)Enum.Parse(typeof(OrderBy), orderOption, true), sourceName);
+
+
+            return (PaginatedList<Topic>.Create(topics, page, pageSize));
+        }
+
+        private IQueryable<Topic> GetTopics(OrderBy orderBy, string sourceName)
         {
             using (var db = new DBContext())
             {
@@ -40,7 +51,7 @@ namespace frontend.ModelBuilders
 
                 var result = topics.Include(t => t.Source).ToList();
 
-                return result.OrderBy(OrderFunctions[orderBy]).ToList();
+                return result.OrderBy(OrderFunctions[orderBy]).AsQueryable<Topic>();
             }
         }
         

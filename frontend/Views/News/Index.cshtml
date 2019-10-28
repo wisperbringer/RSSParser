@@ -3,54 +3,98 @@
     ViewData["Title"] = "News";
 }
 
+@{
+    var pageNumber = ViewBag.Topics?.PageIndex ?? 1;
+}
 <h1>Новостная лента</h1>
 
+<form action="/News/LoadTopics" method="post">
+    <select id="source" asp-for="Source" asp-items="@new SelectList(Model.AllSources)"></select>
+    @for (int i = 0; i < Model.AllSources.Count; i++)
+    {
+        @Html.HiddenFor(model => Model.AllSources[i])
+    }
+    <br />
+    @foreach (var orderOption in Model.OrderByOptions)
+    {
+        <input type="radio" asp-for="Option" value="@orderOption.Key" />@orderOption.Value<br />
+    }
+    @if (Model.IsAJAX)
+    {
+        <input type="button" id="search_button_ajax" value="Посмотреть" />
+    }
+    else
+    {
+        <input type="submit" id="search_button" value="Посмотреть" />
+    }
+    <input id="page_number" name="pageNumber" value="@pageNumber" hidden="hidden"></input>
+    <br />
+    <br />
+    @if (ViewBag.Topics?.HasPreviousPage ?? false)
+    {
+        <input type="submit" id="prev" value="Назад" />
+    }
+    @if (ViewBag.Topics?.HasNextPage ?? false)
+    {
+        <input type="submit" id="next" value="Следующая" />
+    }
+</form>
 
-<select id="source" asp-for="Source" asp-items="@new SelectList(Model.AllSources)"></select>
-<br />
-@foreach (var orderOption in Model.OrderByOptions)
-{
-    <input type="radio" asp-for="Option" value="@orderOption.Key" />@orderOption.Value<br />
-}
-<input type="button" id="search_button" value="Посмотреть" />
-
-<div id="results"></div>
-
+<div id="results">
+    @if (ViewBag.Topics != null)
+    {
+        @Html.Partial("_News", (object)ViewBag.Topics);
+    }
+</div>
 
 <a id="prev_page" class="btn btn-default btn">
     <i class="glyphicon glyphicon-chevron-left"></i>
     Назад
 </a>
-<a id="next_page" class="btn btn-default btn">
+<a id="next_page" class="btn btn-default btn" ">
     Вперед
     <i class="glyphicon glyphicon-chevron-right"></i>
 </a>
 
+
 <script>
-    var pageNumer = 1;
-    function GetUrl() {
-        var source = $('#source').val();
-        var option = $('input[name="Option"]:checked').val()
-        var url = '@Url.Action("LoadTopics", "News")';
-        url += "?sourceName=" + source + "&option=" + option + "&page=" + pageNumer;
-        return url;
-    }
-
-    $('#search_button').click(function () {
-        $('#results').load(GetUrl());
-
-        $('#prev_page').click(function () {
-            pageNumer--;
-            console.log(pageNumer);
-            $('#results').load(GetUrl());
+    $(document).ready(function () {
+        $('#next').click(function () {
+            $("#page_number").val(@(pageNumber + 1));
         })
 
-        $('#next_page').click(function () {
-            pageNumer++;
-            console.log(pageNumer);
-            $('#results').load(GetUrl());
+        $('#prev').click(function () {
+            $("#page_number").val(@(pageNumber - 1));
         })
-    })
+        $("#prev_page").hide();
+        $("#next_page").hide();
+        var pageNumer = @pageNumber;
+        function GetUrl() {
+            var source = $('#source').val();
+            var option = $('input[name="Option"]:checked').val()
+            var url = '@Url.Action("LoadTopics", "News")';
+            url += "?sourceName=" + source + "&option=" + option + "&page=" + pageNumer;
+            return url;
+        }
+        $('#search_button_ajax').click(function () {
+            $('#results').load(GetUrl());
+            var prevPage = $('#prev_page');
+            prevPage.click(function () {
+                pageNumer--;
+                console.log(pageNumer);
+                $('#results').load(GetUrl());
+            })
+            prevPage.show();
+            var nextPage = $('#next_page');
+            nextPage.click(function () {
+                pageNumer++;
+                console.log(pageNumer);
+                $('#results').load(GetUrl());
+            })
+            nextPage.show();
 
+        })
+    });
 
 </script>
+
